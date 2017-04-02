@@ -14,14 +14,15 @@ $assetsUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/';
 $iconSoundOn: url(#{$assetsUrl}icon-sound-on.svg);
 
 $colors: (
-  body: #1A1A1A,
+  // body: #1A1A1A,
+  body: #540d5f,
   button: (
     bg: #C9531D,
     text: white
   ),
   card: (
     back: white,
-    front: #DBB6AB
+    front: #f9f0c6
   ),
   chest: (
     body: #FC993D,
@@ -54,7 +55,21 @@ $colors: (
     body: #FFFAFC,
     outline: #CA2625
   ),
-  success: #1fc9fb
+  success: #1fc9fb,
+  heart: (
+    body: #ff0060,
+    outline: darken(#d50041, 15%)
+  ),
+  balloon: (
+    body: #53aff5,
+    outline: darken(#53aff5, 18%),
+    string: #ffcd54
+  ),
+  message: (
+    one: #AA5585,
+    two: #661141,
+    three: #440026
+  )
 );
 
 @function key($map, $key, $sub-key: null) {
@@ -354,6 +369,7 @@ main {
   background-color: color(card, back);
   transform: rotateY(0);
   &:before {
+    /* Spade */
     box-shadow: 
       $p*8 $p color(outline),
       $p*9 $p color(outline),
@@ -518,8 +534,7 @@ main {
       $p*9 $p*16 color(outline),
       $p*10 $p*16 color(outline),
       $p*11 $p*16 color(outline),
-      $p*12 $p*16 color(outline),
-
+      $p*12 $p*16 color(outline);
   }
 }
 
@@ -1936,6 +1951,11 @@ main {
   50% { opacity: 0.6; }
 }
 
+// Message area
+.message {
+  display: none;
+}
+
 // Cards on the go!
 .card {
   @media (max-width: $bpMedium) {
@@ -1952,4 +1972,552 @@ main {
       transform: scale(0.5);
     }
   }
+}
+
+/* BIRTHDAY MESSAGE STYLING */
+@media (max-width: 448px) {
+.card {
+    position: relative;
+    .back {
+      &:after {
+        position: absolute;
+        top: 28%;
+        left: 25%;
+        right: 0;
+        bottom: 0;
+        font-size: 6rem;
+        text-align: center;
+      }
+    }
+    &:nth-child(1) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'H';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(2) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'A';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(3) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'P';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(4) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'P';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(5) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'Y';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(6) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'B';
+          color: color(message, two);
+        }
+      }
+    }
+    &:nth-child(7) {
+      .back {
+        &:before {
+          // box-shadow: none;
+          /* Balloon */
+          box-shadow: 
+            $p*6 $p color(balloon, outline),
+            $p*7 $p color(balloon, outline),
+            $p*8 $p color(balloon, outline),
+            $p*9 $p color(balloon, outline),
+            $p*10 $p color(balloon, outline),
+            $p*11 $p color(balloon, outline),
+           
+            $p*5 $p*2 color(balloon, outline),
+            $p*6 $p*2 color(balloon, body),
+            $p*7 $p*2 lighten(color(balloon, body), 15%),
+            $p*8 $p*2 color(balloon, body),
+            $p*9 $p*2 color(balloon, body),
+            $p*10 $p*2 color(balloon, body),
+            $p*11 $p*2 color(balloon, body),
+            $p*12 $p*2 color(balloon, outline),
+
+            $p*4 $p*3 color(balloon, outline),
+            $p*5 $p*3 color(balloon, body),
+            $p*6 $p*3 lighten(color(balloon, body), 15%),
+            $p*7 $p*3 color(balloon, body),
+            $p*8 $p*3 color(balloon, body),
+            $p*9 $p*3 color(balloon, body),
+            $p*10 $p*3 color(balloon, body),
+            $p*11 $p*3 color(balloon, body),
+            $p*12 $p*3 color(balloon, body),
+            $p*13 $p*3 color(balloon, outline),
+
+            $p*3 $p*4 color(balloon, outline),
+            $p*4 $p*4 color(balloon, body),
+            $p*5 $p*4 lighten(color(balloon, body), 15%),
+            $p*6 $p*4 color(balloon, body),
+            $p*7 $p*4 color(balloon, body),
+            $p*8 $p*4 color(balloon, body),
+            $p*9 $p*4 color(balloon, body),
+            $p*10 $p*4 color(balloon, body),
+            $p*11 $p*4 color(balloon, body),
+            $p*12 $p*4 color(balloon, body),
+            $p*13 $p*4 color(balloon, body),
+            $p*14 $p*4 color(balloon, outline),
+
+            $p*3 $p*5 color(balloon, outline),
+            $p*4 $p*5 color(balloon, body),
+            $p*5 $p*5 lighten(color(balloon, body), 15%),
+            $p*6 $p*5 color(balloon, body),
+            $p*7 $p*5 color(balloon, body),
+            $p*8 $p*5 color(balloon, body),
+            $p*9 $p*5 color(balloon, body),
+            $p*10 $p*5 color(balloon, body),
+            $p*11 $p*5 color(balloon, body),
+            $p*12 $p*5 color(balloon, body),
+            $p*13 $p*5 color(balloon, body),
+            $p*14 $p*5 color(balloon, outline),
+
+            $p*3 $p*6 color(balloon, outline),
+            $p*4 $p*6 color(balloon, body),
+            $p*5 $p*6 color(balloon, body),
+            $p*6 $p*6 color(balloon, body),
+            $p*7 $p*6 color(balloon, body),
+            $p*8 $p*6 color(balloon, body),
+            $p*9 $p*6 color(balloon, body),
+            $p*10 $p*6 color(balloon, body),
+            $p*11 $p*6 color(balloon, body),
+            $p*12 $p*6 color(balloon, body),
+            $p*13 $p*6 color(balloon, body),
+            $p*14 $p*6 color(balloon, outline),
+
+            $p*3 $p*7 color(balloon, outline),
+            $p*4 $p*7 color(balloon, body),
+            $p*5 $p*7 color(balloon, body),
+            $p*6 $p*7 color(balloon, body),
+            $p*7 $p*7 color(balloon, body),
+            $p*8 $p*7 color(balloon, body),
+            $p*9 $p*7 color(balloon, body),
+            $p*10 $p*7 color(balloon, body),
+            $p*11 $p*7 color(balloon, body),
+            $p*12 $p*7 color(balloon, body),
+            $p*13 $p*7 color(balloon, body),
+            $p*14 $p*7 color(balloon, outline),
+
+            $p*3 $p*8 color(balloon, outline),
+            $p*4 $p*8 color(balloon, body),
+            $p*5 $p*8 color(balloon, body),
+            $p*6 $p*8 color(balloon, body),
+            $p*7 $p*8 color(balloon, body),
+            $p*8 $p*8 color(balloon, body),
+            $p*9 $p*8 color(balloon, body),
+            $p*10 $p*8 color(balloon, body),
+            $p*11 $p*8 color(balloon, body),
+            $p*12 $p*8 color(balloon, body),
+            $p*13 $p*8 color(balloon, body),
+            $p*14 $p*8 color(balloon, outline),
+
+            $p*3 $p*9 color(balloon, outline),
+            $p*4 $p*9 color(balloon, body),
+            $p*5 $p*9 color(balloon, body),
+            $p*6 $p*9 color(balloon, body),
+            $p*7 $p*9 color(balloon, body),
+            $p*8 $p*9 color(balloon, body),
+            $p*9 $p*9 color(balloon, body),
+            $p*10 $p*9 color(balloon, body),
+            $p*11 $p*9 color(balloon, body),
+            $p*12 $p*9 color(balloon, body),
+            $p*13 $p*9 color(balloon, body),
+            $p*14 $p*9 color(balloon, outline),
+
+            $p*3 $p*9 color(balloon, outline),
+            $p*4 $p*9 color(balloon, body),
+            $p*5 $p*9 color(balloon, body),
+            $p*6 $p*9 color(balloon, body),
+            $p*7 $p*9 color(balloon, body),
+            $p*8 $p*9 color(balloon, body),
+            $p*9 $p*9 color(balloon, body),
+            $p*10 $p*9 color(balloon, body),
+            $p*11 $p*9 color(balloon, body),
+            $p*12 $p*9 color(balloon, body),
+            $p*13 $p*9 color(balloon, body),
+            $p*14 $p*9 color(balloon, outline),
+
+            $p*3 $p*10 color(balloon, outline),
+            $p*4 $p*10 color(balloon, body),
+            $p*5 $p*10 color(balloon, body),
+            $p*6 $p*10 color(balloon, body),
+            $p*7 $p*10 color(balloon, body),
+            $p*8 $p*10 color(balloon, body),
+            $p*9 $p*10 color(balloon, body),
+            $p*10 $p*10 color(balloon, body),
+            $p*11 $p*10 color(balloon, body),
+            $p*12 $p*10 darken(color(balloon, body), 5%),
+            $p*13 $p*10 darken(color(balloon, body), 8%),
+            $p*14 $p*10 color(balloon, outline),
+
+            $p*4 $p*11 color(balloon, outline),
+            $p*5 $p*11 color(balloon, body),
+            $p*6 $p*11 color(balloon, body),
+            $p*7 $p*11 color(balloon, body),
+            $p*8 $p*11 color(balloon, body),
+            $p*9 $p*11 color(balloon, body),
+            $p*10 $p*11 color(balloon, body),
+            $p*11 $p*11 darken(color(balloon, body), 5%),
+            $p*12 $p*11 darken(color(balloon, body), 8%),
+            $p*13 $p*11 color(balloon, outline),
+
+            $p*5 $p*12 color(balloon, outline),
+            $p*6 $p*12 color(balloon, body),
+            $p*7 $p*12 color(balloon, body),
+            $p*8 $p*12 color(balloon, body),
+            $p*9 $p*12 color(balloon, body),
+            $p*10 $p*12 darken(color(balloon, body), 5%),
+            $p*11 $p*12 darken(color(balloon, body), 8%),
+            $p*12 $p*12 color(balloon, outline),
+
+            $p*6 $p*13 color(balloon, outline),
+            $p*7 $p*13 color(balloon, body),
+            $p*8 $p*13 color(balloon, body),
+            $p*9 $p*13 color(balloon, body),
+            $p*10 $p*13 color(balloon, body),
+            $p*11 $p*13 color(balloon, outline),
+
+            $p*7 $p*14 color(balloon, string),
+            $p*8 $p*14 color(balloon, string),
+            $p*9 $p*14 color(balloon, string),
+
+            $p*8 $p*15 color(balloon, outline),
+
+            $p*5 $p*16 color(balloon, string),
+            $p*6 $p*16 color(balloon, string),
+            $p*7 $p*16 color(balloon, string);
+        }
+        // &:after {
+        //   content: '🎉';
+        //   color: color(message, two);
+        //   font-size: 5rem;
+        //   left: 19%;
+        //   top: 34%;
+        // }
+      }
+    }
+    &:nth-child(8) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'D';
+          color: color(message, two);
+        }
+      }
+    }
+    &:nth-child(9) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'A';
+          color: color(message, two);
+        }
+      }
+    }
+    &:nth-child(10) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'Y';
+          color: color(message, two);
+        }
+      }
+    }
+    &:nth-child(11) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'S';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(12) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'A';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(13) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'R';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(14) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'A';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(15) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'H';
+          color: color(message, one);
+        }
+      }
+    }
+    &:nth-child(16) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'I';
+          color: color(message, two);
+          margin-left: .5rem;
+        }
+      }
+    }
+    &:nth-child(17) {
+      .back {
+        &:before {
+          // box-shadow: none;
+          /* Heart */
+          box-shadow: 
+            $p*4 $p*3 color(heart, outline),
+            $p*5 $p*3 color(heart, outline),
+            $p*6 $p*3 color(heart, outline),
+            $p*11 $p*3 color(heart, outline),
+            $p*12 $p*3 color(heart, outline),
+            $p*13 $p*3 color(heart, outline),
+
+            $p*3 $p*4 color(heart, outline),
+            $p*4 $p*4 lighten(color(heart, body), 10%),
+            $p*5 $p*4 lighten(color(heart, body), 10%),
+            $p*6 $p*4 color(heart, body),
+            $p*7 $p*4 color(heart, outline),
+            $p*10 $p*4 color(heart, outline),
+            $p*11 $p*4 color(heart, body),
+            $p*12 $p*4 lighten(color(heart, body), 10%),
+            $p*13 $p*4 lighten(color(heart, body), 10%),
+            $p*14 $p*4 color(heart, outline),
+
+            $p*2 $p*5 color(heart, outline),
+            $p*3 $p*5 lighten(color(heart, body), 10%),
+            $p*4 $p*5 color(heart, body),
+            $p*5 $p*5 color(heart, body),
+            $p*6 $p*5 color(heart, body),
+            $p*7 $p*5 color(heart, body),
+            $p*8 $p*5 color(heart, body),
+            $p*9 $p*5 color(heart, body),
+            $p*10 $p*5 color(heart, body),
+            $p*11 $p*5 color(heart, body),
+            $p*12 $p*5 color(heart, body),
+            $p*13 $p*5 color(heart, body),
+            $p*14 $p*5 lighten(color(heart, body), 10%),
+            $p*15 $p*5 color(heart, outline),
+
+            $p*2 $p*5 color(heart, outline),
+            $p*3 $p*5 color(heart, body),
+            $p*4 $p*5 color(heart, body),
+            $p*5 $p*5 color(heart, body),
+            $p*6 $p*5 color(heart, body),
+            $p*7 $p*5 color(heart, body),
+            $p*8 $p*5 color(heart, body),
+            $p*9 $p*5 color(heart, body),
+            $p*10 $p*5 color(heart, body),
+            $p*11 $p*5 color(heart, body),
+            $p*12 $p*5 color(heart, body),
+            $p*13 $p*5 color(heart, body),
+            $p*14 $p*5 color(heart, body),
+            $p*15 $p*5 color(heart, outline),
+
+            $p*2 $p*6 color(heart, outline),
+            $p*3 $p*6 lighten(color(heart, body), 10%),
+            $p*4 $p*6 color(heart, body),
+            $p*5 $p*6 color(heart, body),
+            $p*6 $p*6 color(heart, body),
+            $p*7 $p*6 color(heart, body),
+            $p*8 $p*6 color(heart, body),
+            $p*9 $p*6 color(heart, body),
+            $p*10 $p*6 color(heart, body),
+            $p*11 $p*6 color(heart, body),
+            $p*12 $p*6 color(heart, body),
+            $p*13 $p*6 color(heart, body),
+            $p*14 $p*6 lighten(color(heart, body), 10%),
+            $p*15 $p*6 color(heart, outline),
+
+            $p*2 $p*7 color(heart, outline),
+            $p*3 $p*7 color(heart, body),
+            $p*4 $p*7 color(heart, body),
+            $p*5 $p*7 color(heart, body),
+            $p*6 $p*7 color(heart, body),
+            $p*7 $p*7 color(heart, body),
+            $p*8 $p*7 color(heart, body),
+            $p*9 $p*7 color(heart, body),
+            $p*10 $p*7 color(heart, body),
+            $p*11 $p*7 color(heart, body),
+            $p*12 $p*7 color(heart, body),
+            $p*13 $p*7 color(heart, body),
+            $p*14 $p*7 color(heart, body),
+            $p*15 $p*7 color(heart, outline),
+
+            $p*2 $p*8 color(heart, outline),
+            $p*3 $p*8 color(heart, body),
+            $p*4 $p*8 color(heart, body),
+            $p*5 $p*8 color(heart, body),
+            $p*6 $p*8 color(heart, body),
+            $p*7 $p*8 color(heart, body),
+            $p*8 $p*8 color(heart, body),
+            $p*9 $p*8 color(heart, body),
+            $p*10 $p*8 color(heart, body),
+            $p*11 $p*8 color(heart, body),
+            $p*12 $p*8 color(heart, body),
+            $p*13 $p*8 color(heart, body),
+            $p*14 $p*8 color(heart, body),
+            $p*15 $p*8 color(heart, outline),
+
+            $p*3 $p*9 color(heart, outline),
+            $p*4 $p*9 color(heart, body),
+            $p*5 $p*9 color(heart, body),
+            $p*6 $p*9 color(heart, body),
+            $p*7 $p*9 color(heart, body),
+            $p*8 $p*9 color(heart, body),
+            $p*9 $p*9 color(heart, body),
+            $p*10 $p*9 color(heart, body),
+            $p*11 $p*9 color(heart, body),
+            $p*12 $p*9 color(heart, body),
+            $p*13 $p*9 color(heart, body),
+            $p*14 $p*9 color(heart, outline),
+
+            $p*4 $p*10 color(heart, outline),
+            $p*5 $p*10 color(heart, body),
+            $p*6 $p*10 color(heart, body),
+            $p*7 $p*10 color(heart, body),
+            $p*8 $p*10 color(heart, body),
+            $p*9 $p*10 color(heart, body),
+            $p*10 $p*10 color(heart, body),
+            $p*11 $p*10 color(heart, body),
+            $p*12 $p*10 color(heart, body),
+            $p*13 $p*10 color(heart, outline),
+
+            $p*4 $p*11 color(heart, outline),
+            $p*5 $p*11 color(heart, body),
+            $p*6 $p*11 color(heart, body),
+            $p*7 $p*11 color(heart, body),
+            $p*8 $p*11 color(heart, body),
+            $p*9 $p*11 color(heart, body),
+            $p*10 $p*11 color(heart, body),
+            $p*11 $p*11 color(heart, body),
+            $p*12 $p*11 color(heart, body),
+            $p*13 $p*11 color(heart, outline),
+
+            $p*5 $p*12 color(heart, outline),
+            $p*6 $p*12 color(heart, body),
+            $p*7 $p*12 color(heart, body),
+            $p*8 $p*12 color(heart, body),
+            $p*9 $p*12 color(heart, body),
+            $p*10 $p*12 color(heart, body),
+            $p*11 $p*12 color(heart, body),
+            $p*12 $p*12 color(heart, outline),
+
+            $p*6 $p*13 color(heart, outline),
+            $p*7 $p*13 color(heart, body),
+            $p*8 $p*13 color(heart, body),
+            $p*9 $p*13 color(heart, body),
+            $p*10 $p*13 color(heart, body),
+            $p*11 $p*13 color(heart, outline),
+
+            $p*7 $p*14 color(heart, outline),
+            $p*8 $p*14 color(heart, body),
+            $p*9 $p*14 color(heart, body),
+            $p*10 $p*14 color(heart, outline),
+
+            $p*8 $p*15 color(heart, outline),
+            $p*9 $p*15 color(heart, outline);
+        }
+        // &:after {
+        //   content: '💖';
+        //   color: color(message, two);
+        //   font-size: 5rem;
+        //   left: 19%;
+        //   top: 34%;
+        // }
+      }
+    }
+    &:nth-child(18) {
+      .back {
+        &:before {
+          box-shadow: none;
+        }
+        &:after {
+          content: 'U';
+          color: color(message, two);
+        }
+      }
+    }
+  }
+  // &[data-type="star"] .front:before {
+    
+  // }
 }
